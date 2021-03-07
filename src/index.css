@@ -1,0 +1,146 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+  background-image: url('./back1.jpg');
+  background-repeat: no-repeat;
+  display: flex;
+  opacity:0.6;
+  width:100%;
+  height: 100%;
+  overflow: hidden;
+   
+  
+}
+
+
+
+.mains{
+  
+
+position: absolute;
+left:auto;
+max-width:100%;
+   
+}
+.b1{
+  color: greenyellow;
+  border:none;
+  
+
+}
+.b1:hover{
+  color:orange;
+
+}
+.b1.active{
+  border-top:2px solid greenyellow;
+  border-bottom:none;
+}
+html {
+  width: 100vw;
+  height: 100vh;
+  cursor: url(./pointer.png) ;
+
+}
+.b2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: auto;
+  width:100%;
+  height: 100%;
+  padding: 3%;
+  overflow: hidden;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+  
+}
+.box {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top:20%;
+  margin-left:5%;
+  font-size: 80px;
+  line-height: 0.95;
+  padding: 0 40px 0 40px;
+  color: orangered;
+  opacity: 0.6;
+  overflow: hidden;
+  font-family: 'Orbitron'
+  
+}
+.label {
+  font-size: 20px;
+  font-weight: 600;
+  color:orangered;
+}
+
+.nav{
+  border:none
+}
+.tab-content{
+  
+  
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin-left:-30%;
+  width:100%;
+  height: 100%;
+  padding: 3%;
+  overflow: hidden;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+}
+.card-head{
+  text-decoration-line: none;
+  font-size: 30px;
+  color: orange;
+  font-family: 'Orbitron';
+  border-bottom: 2px solid white;
+}
+.card-head:hover{
+  text-decoration-line: none;
+  color:greenyellow;
+}
+td{
+  color:greenyellow;
+  
+  font-family: cursive;
+  font-size:20px;
+  justify-items: left;
+  
+}
+.sys{
+  margin-left:240px;
+  width: 100%;
+  
+}
+.card-body{
+  padding-top: 1.25rem;
+  padding-left: 1.25rem;
+
+  padding-right: 1.25rem;
+  padding-bottom: -0.75rem;
+
+}
+.td{
+  color:greenyellow;
+  
+  font-family: cursive;
+  font-size:16px;
+  justify-items: left;
+  width:60%;
+  height: auto;
+  
+}
+
