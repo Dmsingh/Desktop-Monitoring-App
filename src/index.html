@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Desktop Monitoring App</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <!-- Bootstrap CSS -->
+
+ 
+<!-- Bootstrap Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script>let $ = require('jquery');</script>
+<script>require('popper.js');</script>
+<script>require('bootstrap');</script>
+  </head>
+  <body class="url">
+ <audio id="play" src="./tune.mp3" controls   loop="on" hidden></audio>
+
+
+ 
+ <div class="container-fluid mains url">
+  <ul class="nav  nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="  btn btn-transparent  active b1     "  onclick=home() id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="  btn b1 btn-transparent"  id="profile-tab" onclick=system() data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">System</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class=" btn  b1 btn-transparent" id="contact-tab" onclick=cpu() data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">CPU</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class=" btn  b1 btn-transparent" id="graphic-tab" onclick=graphic() data-toggle="tab" href="#graphic" role="tab" aria-controls="Graphics" aria-selected="false">Graphics</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class=" btn  b1 btn-transparent" id="os-tab" onclick=os() data-toggle="tab" href="#os" role="tab" aria-controls="os" aria-selected="false">OS</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class=" btn  b1 btn-transparent" id="network-tab" onclick=net() data-toggle="tab" href="#network" role="tab" aria-controls="network" aria-selected="false">Network</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class=" btn  b1 btn-transparent" id="battery-tab" onclick=bat() data-toggle="tab" href="#battery" role="tab" aria-controls="battery" aria-selected="false">Battery</a>
+    </li>
+  </ul>
+  <div class="tab-content container-fluid" id="myTabContent">
+    <div class="tab-pane b2  fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="box float-left">
+        <span class="label ">CPU (%)</span>
+        <span id="cpu">-</span>
+      </div>
+      <div class="box float-left ">
+        <span class="label">Free Mem (%)</span>
+        <span id="Mem">-</span>
+      </div>
+      <div class="box float-left">
+        <span class="label">Total Mem (GB)</span>
+        <span id="Total-mem">-</span>
+      </div>
+    </div>
+    <div class="tab-pane b2 fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="container-fluid sys" >
+        <div class="accordion " id="accordionExample">
+          <div class="card  bg-transparent">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head"  type="button" data-toggle="collapse" data-target="#system" aria-expanded="true" aria-controls="collapseOne">
+                System Information
+                </button>
+              </h5>
+            </div>
+        
+            <div id="system" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <table class="table table-borderless ">
+                  
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Manufacturer -></td>
+                      
+                      <td id="sys_manufacturer">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Model -></td>
+                     
+                      <td id="sys_model">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Serial No.  -></td>
+                     
+                      <td id="sys_serial">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Sku -></td>
+                     
+                      <td id="sys_sku">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>UUID No. -></td>
+                     
+                      <td id="sys_uuid">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Version -></td>
+                     
+                      <td id="sys_version">-</td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card bg-transparent">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#Chasis" aria-expanded="false" aria-controls="collapseThree">
+                  System's Chasis Information
+                </button>
+              </h5>
+            </div>
+            <div id="Chasis" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                <table class="table table-borderless " >
+                  <thead>
+                   
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Manufacturer -></td>
+                      
+                      <td id="chasis_manufacturer">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">Type -></td>
+                      
+                      <td id="chasis_type">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Model -></td>
+                     
+                      <td id="chasis_model">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Serial No.  -></td>
+                     
+                      <td id="chasis_serial">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Sku -></td>
+                     
+                      <td id="chasis_sku">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Asset Tag -></td>
+                     
+                      <td id="chasis_assettag">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Version -></td>
+                     
+                      <td id="chasis_version">-</td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card bg-transparent">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head  collapsed" type="button" data-toggle="collapse" data-target="#Baseboard" aria-expanded="false" aria-controls="collapseThree">
+                  System's Baseboard Information
+                </button>
+              </h5>
+            </div>
+            <div id="Baseboard" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                <table class="table table-borderless " >
+                  <thead>
+                   
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Manufacturer -></td>
+                      
+                      <td id="baseboard_manufacture">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Model -></td>
+                     
+                      <td id="baseboard_model">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Serial No.  -></td>
+                     
+                      <td id="baseboard_serial">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Asset Tag -></td>
+                     
+                      <td id="baseboard_assettag">-</td>
+                    </tr>
+                   
+                    <tr>
+                      
+                      <td>Version -></td>
+                     
+                      <td id="baseboard_version">-</td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card bg-transparent">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#BIOS" aria-expanded="false" aria-controls="collapseTwo">
+                  System's BIOS Information
+                </button>
+              </h5>
+            </div>
+            <div id="BIOS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <table class="table table-borderless " >
+                  <thead>
+                   
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Vendor -></td>
+                      
+                      <td id="bios_vendor">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Release Date -></td>
+                     
+                      <td id="bios_releasedate">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Revision  -></td>
+                     
+                      <td id="bios_revision">-</td>
+                    </tr>
+                   
+                      
+                      <td>Version -></td>
+                     
+                      <td id="bios_version">-</td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    <div class="tab-pane b2 fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="container-fluid sys" >
+        <div class="accordion " id="accordionExample1">
+          <div class="card  bg-transparent">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head"  type="button" data-toggle="collapse" data-target="#cpu" aria-expanded="true" aria-controls="collapseOne">
+                CPU Information
+                </button>
+              </h5>
+            </div>
+        
+            <div id="cpu" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample1">
+              <div class="card-body">
+                <table class="table table-borderless ">
+                  
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Brand -></td>
+                      
+                      <td id="cpu_brand">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">Manufacturer -></td>
+                      
+                      <td id="cpu_manufacturer">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Model -></td>
+                     
+                      <td id="cpu_model">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Vendor  -></td>
+                     
+                      <td id="cpu_vendor">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Cores -></td>
+                     
+                      <td id="cpu_cores">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Family -></td>
+                     
+                      <td id="cpu_family">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Processors -></td>
+                     
+                      <td id="cpu_processors">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Socket -></td>
+                     
+                      <td id="cpu_socket">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>cpu_stepping -></td>
+                     
+                      <td id="cpu_stepping">-</td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card bg-transparent">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#cache" aria-expanded="false" aria-controls="collapseThree">
+                  Cache Information
+                </button>
+              </h5>
+            </div>
+            <div id="cache" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample1">
+              <div class="card-body">
+                <table class="table table-borderless " >
+                  <thead>
+                   
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">L1d -></td>
+                      
+                      <td id="cpu_l1d">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">L1i -></td>
+                      
+                      <td id="cpu_l1i">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>L2 -></td>
+                     
+                      <td id="cpu_l2">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>L3  -></td>
+                     
+                      <td id="cpu_l3">-</td>
+                    </tr>
+                   
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+         
+          <div class="card bg-transparent">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#speed" aria-expanded="false" aria-controls="collapseTwo">
+                  Current Speed Information
+                </button>
+              </h5>
+            </div>
+            <div id="speed" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample1">
+              <div class="card-body">
+                <table class="table table-borderless " >
+                  <thead>
+                   
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Avg Speed -></td>
+                      
+                      <td id="cpu_avg">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Cores -></td>
+                     
+                      <td id="cpu_sp_cores">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Max Speed  -></td>
+                     
+                      <td id="cpu_max">-</td>
+                    </tr>
+                   
+                      
+                      <td>Min Speed -></td>
+                     
+                      <td id="cpu_min">-</td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="tab-pane b2  fade" id="graphic" role="tabpanel" aria-labelledby="graphic-tab">
+      <div class="container-fluid sys" >
+        <div class="accordion " id="accordionExample3">
+          <div class="card  bg-transparent">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head"  type="button" data-toggle="collapse" data-target="#display" aria-expanded="true" aria-controls="collapseOne">
+                Display 
+                </button>
+              </h5>
+            </div>
+        
+            <div id="display" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample3">
+              <div class="card-body">
+                <table class="table table-borderless ">
+                  
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Vendor -></td>
+                      
+                      <td id="dis_vendor">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">Model -></td>
+                      
+                      <td id="dis_model">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Pixel Depth -></td>
+                     
+                      <td id="dis_pixel">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Resolution X  -></td>
+                     
+                      <td id="dis_x">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Resolution Y -></td>
+                     
+                      <td id="dis_y">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Resfresh Rate -></td>
+                     
+                      <td id="dis_refreshrate">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Current Resolution x -></td>
+                     
+                      <td id="dis_c_x">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Current Resolution y -></td>
+                      
+                     
+                      <td id="dis_c_y">-</td>
+                    </tr>
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card bg-transparent">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#graphic0" aria-expanded="false" aria-controls="collapseThree">
+                  Intigrated Graphic Information
+                </button>
+              </h5>
+            </div>
+            <div id="graphic0" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample3">
+              <div class="card-body">
+                <table class="table table-borderless " >
+                  <thead>
+                   
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Vendor -></td>
+                      
+                      <td id="g1_vendor">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">Model -></td>
+                      
+                      <td id="g1_model">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Bus -></td>
+                     
+                      <td id="g1_bus">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Vram  -></td>
+                     
+                      <td id="g1_vram">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Dynamic Ram  -></td>
+                     
+                      <td id="g1_dram">-</td>
+                    </tr>
+                   
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+         
+          <div class="card bg-transparent">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#graphic1" aria-expanded="false" aria-controls="collapseThree">
+                  Additional Graphic Information
+                </button>
+              </h5>
+            </div>
+            <div id="graphic1" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample3">
+              <div class="card-body">
+                <table class="table table-borderless " >
+                  <thead>
+                   
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Vendor -></td>
+                      
+                      <td id="g2_vendor">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">Model -></td>
+                      
+                      <td id="g2_model">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Bus -></td>
+                     
+                      <td id="g2_bus">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Vram  -></td>
+                     
+                      <td id="g2_vram">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Dynamic Ram  -></td>
+                     
+                      <td id="g2_dram">-</td>
+                    </tr>
+                   
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="tab-pane b2 fade" id="os" role="tabpanel" aria-labelledby="os-tab">
+      <div class="container-fluid sys" >
+        <div class="accordion " id="accordionExample4">
+          <div class="card  bg-transparent">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head"  type="button" data-toggle="collapse" data-target="#display" aria-expanded="true" aria-controls="collapseOne">
+                Os Information Part-1
+                </button>
+              </h5>
+            </div>
+        
+            <div id="display" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample4">
+              <div class="card-body">
+                <table class="table table-borderless ">
+                  
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Host Name -></td>
+                      
+                      <td id="os_host">-</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">Architecture -></td>
+                      
+                      <td id="os_arch">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">Build -></td>
+                      
+                      <td id="os_build">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Codename -></td>
+                     
+                      <td id="os_codename">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Codepage  -></td>
+                     
+                      <td id="os_codepage">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Distro -></td>
+                     
+                      <td id="os_distro">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Kernel -></td>
+                     
+                      <td id="os_kernel">-</td>
+                    </tr>
+                    <tr>
+                      
+                     
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card bg-transparent">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#graphic0" aria-expanded="false" aria-controls="collapseThree">
+                Os Information Part-2
+                  </button>
+              </h5>
+            </div>
+            <div id="graphic0" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample4">
+              <div class="card-body">
+                <table class="table table-borderless " >
+                  <thead>
+                   
+                  </thead>
+                  <tbody>
+                    <tr>
+                      
+                      <td style="width: 250px;">Platform -></td>
+                      
+                      <td id="os_platform">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td style="width: 250px;">Release -></td>
+                      
+                      <td id="os_release">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Serial/Key -></td>
+                     
+                      <td id="os_serial">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>Service Pack  -></td>
+                     
+                      <td id="os_servicepack">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>UEFI  -></td>
+                     
+                      <td id="os_uefi">-</td>
+                    </tr>
+                    <tr>
+                      
+                      <td>UUID  -></td>
+                     
+                      <td id="os_uuid">-</td>
+                    </tr>
+                   
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+
+    </div>
+
+
+
+  </div>
+    
+ </div>
+ <div class="tab-pane b2 fade" id="network" role="tabpanel" aria-labelledby="network-tab">
+  <div class="container-fluid sys" >
+    <div class="accordion " id="accordionExample5">
+      <div class="card  bg-transparent">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-ouline-success btn-lg  card-head"  type="button" data-toggle="collapse" data-target="#cpu" aria-expanded="true" aria-controls="collapseOne">
+            Network Information
+            </button>
+          </h5>
+        </div>
+    
+        <div id="cpu" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample5">
+          <div class="card-body">
+            <table class="table table-borderless ">
+              
+              <tbody>
+                <tr>
+                  
+                  <td style="width: 250px;">Network Gateway -></td>
+                  
+                  <td id="net_gateway">-</td>
+                </tr>
+                <tr>
+                  
+                  <td style="width: 250px;">Network Interface -></td>
+                  
+                  <td id="net_interface">-</td>
+                </tr>
+                <tr>
+                  
+                  
+              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-transparent">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#cache" aria-expanded="false" aria-controls="collapseThree">
+              Wifi Stats
+            </button>
+          </h5>
+        </div>
+        <div id="cache" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample5">
+          <div class="card-body">
+            
+            <div class="form-group ">
+             
+            
+                  <div class="td" id="wifi_stats">
+                     Sorry no stats...
+                  </div>
+                </div>
+              
+            
+          </div>
+        </div>
+      </div>
+      
+     
+      <div class="card bg-transparent">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#speed" aria-expanded="false" aria-controls="collapseTwo">
+              Network Stats
+            </button>
+          </h5>
+        </div>
+        <div id="speed" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample5">
+          <div class="card-body">
+            <div class="form-group ">
+             
+            
+              <div class="td" id="net_stats">
+                 Sorry no stats...
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+ </div>
+ <div class="tab-pane b2 fade" id="battery" role="tabpanel" aria-labelledby="network-tab">
+  <div class="container-fluid sys" >
+    <div class="accordion " id="accordionExample6">
+      <div class="card  bg-transparent">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-ouline-success btn-lg  card-head"  type="button" data-toggle="collapse" data-target="#bat1" aria-expanded="true" aria-controls="collapseOne">
+            Battery Information Part-1
+            </button>
+          </h5>
+        </div>
+    
+        <div id="bat1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample6">
+          <div class="card-body">
+            <table class="table table-borderless ">
+              
+              <tbody>
+                <tr>
+                  
+                  <td style="width: 250px;">Max capacity -></td>
+                  
+                  <td id="bat_maxcap">-</td>
+                </tr>
+                <tr>
+                  
+                  <td style="width: 250px;">Model -></td>
+                  
+                  <td id="bat_model">-</td>
+                </tr>
+                <tr>
+                  
+                  <td style="width: 250px;">Percentage (%) -></td>
+                  
+                  <td id="bat_percent">-</td>
+                </tr>
+                <tr>
+                  
+                  <td style="width: 250px;">Serial -></td>
+                  
+                  <td id="bat_">-</td>
+                </tr>
+                <tr>
+                  
+                  <td style="width: 250px;">Remaining Time -></td>
+                  
+                  <td id="bat_time">-</td>
+                </tr>
+                <tr>
+                  
+                  <td style="width: 250px;">Type -></td>
+                  
+                  <td id="bat_type">-</td>
+                </tr>
+                <tr>
+                  
+                  <td style="width: 250px;">Voltage -></td>
+                  
+                  <td id="bat_volt">-</td>
+                </tr>
+                
+                  
+                  
+              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-transparent">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-ouline-success btn-lg  card-head collapsed" type="button" data-toggle="collapse" data-target="#bat2" aria-expanded="false" aria-controls="collapseThree">
+              Battery Information Part-2
+            </button>
+          </h5>
+        </div>
+        <div id="bat2" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample6">
+          <div class="card-body">
+            <table class="table table-borderless ">
+              
+              <tbody>
+                <tr>
+                  
+                  <td style="width: 250px;">Ac Connected -></td>
+                  
+                  <td id="bat_accon">-</td>
+                </tr>
+                <tr>
+                  
+                  <td style="width: 250px;">Capacity Unit -></td>
+                  
+                  <td id="bat_capacity">-</td>
+                </tr>
+                <tr>
+                  
+                  
+                    <td style="width: 250px;">Current Capacity -></td>
+                    
+                    <td id="bat_currentcap">-</td>
+                  </tr>
+                  <tr>   
+                      
+                  
+                    <td style="width: 250px;">Current Designed -></td>
+                    
+                    <td id="bat_designedcap">-</td>
+                  </tr>
+                  <tr>    
+                    
+                  
+                    <td style="width: 250px;"> Has Battery? -></td>
+                    
+                    <td id="bat_has">-</td>
+                  </tr>
+                  <tr>   
+                      
+                  
+                    <td style="width: 250px;">Is Charging? -></td>
+                    
+                    <td id="bat_is">-</td>
+                  </tr>
+                  <tr>  
+                       
+                  
+                    <td style="width: 250px;">Manufacturer -></td>
+                    
+                    <td id="bat_manufacturer">-</td>
+                  </tr>
+                  
+
+                  
+
+                  
+              
+              </tbody>
+            </table>
+           
+              
+            
+          </div>
+        </div>
+      </div>
+      
+     
+    
+    </div>
+    
+  </div>
+ </div>
+
+
+
+
+    <script>
+      system=()=>{
+        document.body.style.backgroundImage = "url('./back.jpg')";
+      }
+      home=()=>{
+        document.body.style.backgroundImage = "url('./back1.jpg')";
+   
+      }
+      cpu=()=>{
+        document.body.style.backgroundImage = "url('./back2.jpg')";
+        document.body.style.opacity=0.5
+
+   
+
+      }
+      graphic=()=>{
+        document.body.style.backgroundImage = "url('./pubg.jpg')";
+        document.body.style.opacity=0.7
+
+   
+      }
+      os=()=>{
+        document.body.style.backgroundImage = "url('./os.jpg')";
+        document.body.style.opacity=1
+
+   
+      }
+      net=()=>{
+        document.body.style.backgroundImage = "url('./net.jpg')";
+        document.body.style.opacity=0.6
+
+   
+      }
+      bat=()=>{
+        document.body.style.backgroundImage = "url('./bat2.jpg')";
+        document.body.style.opacity=0.7
+
+   
+      }
+      //speak('Jon likes Iced Tea!');
+ 
+      // say a message
+      
+    
+     const electron= require('electron')
+     const ipcRenderer=electron.ipcRenderer;
+    
+     setTimeout(function(){
+      document.getElementById("play").play();
+      
+    }, 20000)
+
+    setTimeout(()=>{
+      
+        document.body.style.cursor = "url(pointer.png)";
+      
+    },1000)
+     
+     ipcRenderer.on('cpu',(event,data)=>{
+       document.getElementById('cpu').innerHTML=data.toFixed(2);
+     })
+     ipcRenderer.on('Mem',(event,data)=>{
+      document.getElementById('Mem').innerHTML=data.toFixed(2);
+    })
+    ipcRenderer.on('Total-mem',(event,data)=>{
+      console.log(data)
+      document.getElementById('Total-mem').innerHTML=data.toFixed(2);
+    })
+  
+    ipcRenderer.on('os_hostname',(event,data)=>{
+      if (data!="")
+      {
+           console.log("cpuhostname",data)
+// say a message
+                    function speak(text, callback) 
+                    {
+                var u = new SpeechSynthesisUtterance();
+                u.text = text;
+                u.lang = 'en-US';
+            
+                u.onend = function () {
+                    if (callback) {
+                        callback();
+                    }
+                };
+            
+                u.onerror = function (e) {
+                    if (callback) {
+                        callback(e);
+                    }
+                };
+            
+                speechSynthesis.speak(u);
+            }
+speak('Welcome! to your system '+data+'. Your system is under processing, please! wait for few seconds...    As a developer, I hope that you like this UI of my app Dm  Desktop Monitoring');
+
+        
+      
+      }
+      })
+ 
+    //here script is written for system information
+    ipcRenderer.on('sys_manufacturer',(event,data)=>{
+      if (data!='')
+      {
+      document.getElementById('sys_manufacturer').innerHTML=data;
+      }
+    })
+    ipcRenderer.on('sys_model',(event,data)=>{
+      if (data!='')
+      {
+      document.getElementById('sys_model').innerHTML=data;
+      }
+    })
+     ipcRenderer.on('sys_serial',(event,data)=>{
+      if (data!='')
+      {
+      document.getElementById('sys_serial').innerHTML=data;
+      }
+    }) 
+    ipcRenderer.on('sys_sku',(event,data)=>{
+      if (data!='')
+      {
+      document.getElementById('sys_sku').innerHTML=data;
+      }
+    }) 
+    ipcRenderer.on('sys_uuid',(event,data)=>{
+      if (data!='')
+      {
+      document.getElementById('sys_uuid').innerHTML=data;
+      }
+    })
+     ipcRenderer.on('sys_version',(event,data)=>{
+       if (data!="")
+       {
+        document.getElementById('sys_version').innerHTML=data;
+
+       }
+    })
+
+    ipcRenderer.on('chasis_manufacturer',(event,data)=>{
+      document.getElementById('chasis_manufacturer').innerHTML=data;
+    
+    })
+    ipcRenderer.on('chasis_model',(event,data)=>{
+      if (data!='')
+      {
+
+      
+      document.getElementById('chasis_model').innerHTML=data;
+      }
+    })
+     ipcRenderer.on('chasis_serial',(event,data)=>{
+      if (data!='')
+      {
+        document.getElementById('chasis_serial').innerHTML=data;
+
+      }
+    }) 
+    ipcRenderer.on('chasis_type',(event,data)=>{
+      if (data!='')
+      {
+      document.getElementById('chasis_type').innerHTML=data;
+       
+
+      }
+    }) 
+    ipcRenderer.on('chasis_sku',(event,data)=>{
+      if (data!='')
+      {
+      document.getElementById('chasis_sku').innerHTML=data;
+      }
+    })
+     ipcRenderer.on('chasis_version',(event,data)=>{
+       if (data!="")
+       {
+        document.getElementById('chasis_version').innerHTML=data;
+
+       }
+    })
+    ipcRenderer.on('chasis_assettag',(event,data)=>{
+
+      if (data!="")
+      {
+      document.getElementById('chasis_assettag').innerHTML=data;
+       
+
+      }
+    })
+
+  ipcRenderer.on('baseboard_manufacture',(event,data)=>{
+      document.getElementById('baseboard_manufacture').innerHTML=data;
+    
+    })
+    ipcRenderer.on('baseboard_model',(event,data)=>{
+      if (data!='')
+      {
+
+      
+      document.getElementById('baseboard_model').innerHTML=data;
+      }
+    })
+     ipcRenderer.on('baseboard_serial',(event,data)=>{
+      if (data!='')
+      {
+        document.getElementById('baseboard_serial').innerHTML=data;
+
+      }
+    }) 
+
+  
+
+     ipcRenderer.on('baseboard_version',(event,data)=>{
+       if (data!="")
+       {
+        document.getElementById('baseboard_version').innerHTML=data;
+
+       }
+    })
+    ipcRenderer.on('baseboard_assettag',(event,data)=>{
+      if (data!="")
+      {
+       document.getElementById('baseboard_assettag').innerHTML=data;
+
+      }
+    })
+    ipcRenderer.on('bios_vendor',(event,data)=>{
+      if (data!="")
+      {
+       document.getElementById('bios_vendor').innerHTML=data;
+
+      }
+    })
+    ipcRenderer.on('bios_version',(event,data)=>{
+      if (data!="")
+      {
+       document.getElementById('bios_version').innerHTML=data;
+
+      }
+    })
+    ipcRenderer.on('bios_releasedate',(event,data)=>{
+      if (data!="")
+      {
+       document.getElementById('bios_releasedate').innerHTML=data;
+
+      }
+    })
+    ipcRenderer.on('bios_revesion',(event,data)=>{
+      if (data!="")
+      {
+       document.getElementById('bios_revesion').innerHTML=data;
+
+      }
+    })
+   //here it is end of script
+
+
+
+   //Here we write code for fetching CPU Information
+
+  ipcRenderer.on('cpu_brand',(event,data)=>{
+    if (data!='')
+    {
+
+    
+    document.getElementById('cpu_brand').innerHTML=data;
+    }
+  })
+   ipcRenderer.on('cpu_cores',(event,data)=>{
+    if (data!='')
+    {
+      document.getElementById('cpu_cores').innerHTML=data;
+
+    }
+  }) 
+  ipcRenderer.on('cpu_family',(event,data)=>{
+    if (data!='')
+    {
+    document.getElementById('cpu_family').innerHTML=data;
+     
+
+    }
+  }) 
+  ipcRenderer.on('cpu_manufacturer',(event,data)=>{
+    if (data!='')
+    {
+    document.getElementById('cpu_manufacturer').innerHTML=data;
+    }
+  })
+   ipcRenderer.on('cpu_model',(event,data)=>{
+     if (data!="")
+     {
+      document.getElementById('cpu_model').innerHTML=data;
+
+     }
+  })
+  ipcRenderer.on('cpu_processors',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_processors').innerHTML=data;
+
+    }
+  })
+  ipcRenderer.on('cpu_socket',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_socket').innerHTML=data;
+
+    }
+  })
+   ipcRenderer.on('cpu_stepping',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_stepping').innerHTML=data;
+
+    }
+  }) 
+  ipcRenderer.on('cpu_vendor',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_vendor').innerHTML=data;
+
+    }
+  })
+  
+
+  ipcRenderer.on('cpu_l1d',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_l1d').innerHTML=data;
+
+    }
+  }) 
+  ipcRenderer.on('cpu_l1i',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_l1i').innerHTML=data;
+
+    }
+  })
+  ipcRenderer.on('cpu_l2',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_l2').innerHTML=data;
+
+    }
+  })
+  ipcRenderer.on('cpu_l3',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_l3').innerHTML=data;
+
+    }
+  })
+  ipcRenderer.on('cpu_avg',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_avg').innerHTML=data;
+
+    }
+  })
+  ipcRenderer.on('cpu_sp_core',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_sp_core').innerHTML=data;
+
+    }
+  })
+  ipcRenderer.on('cpu_max',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_max').innerHTML=data;
+
+    }
+  })
+  ipcRenderer.on('cpu_min',(event,data)=>{
+    if (data!="")
+    {
+     document.getElementById('cpu_min').innerHTML=data;
+
+    }
+  })
+//Here end of cpu
+
+
+
+//here we start giving information of graphics
+ipcRenderer.on('g1_vendor',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g1_vendor').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('g1_model',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g1_model').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('g1_vram',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g1_vram').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('g1_dram',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g1_dram').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('g1_bus',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g1_bus').innerHTML=data;
+
+  }
+})
+
+ipcRenderer.on('g2_vendor',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g2_vendor').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('g2_model',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g2_model').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('g2_vram',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g2_vram').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('g2_dram',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g2_dram').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('g2_bus',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('g2_bus').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('dis_vendor',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('dis_vendor').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('dis_model',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('dis_model').innerHTML=data;
+   
+
+  }
+})
+ipcRenderer.on('dis_pixel',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('dis_pixel').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('dis_x',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('dis_x').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('dis_y',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('dis_y').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('dis_c_x',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('dis_c_x').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('dis_c_y',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('dis_c_y').innerHTML=data;
+   
+
+  }
+})
+ipcRenderer.on('dis_refreshrate',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('dis_refreshrate').innerHTML=data;
+
+  }
+})
+
+///Here we are going to fetch os information
+ipcRenderer.on('os_arch',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_arch').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_build',(event,data)=>{
+if (data!="")
+{
+ document.getElementById('os_build').innerHTML=data;
+
+}
+})
+ipcRenderer.on('os_hostsp',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_host').innerHTML=data;
+
+  
+  }
+  })
+ipcRenderer.on('os_codename',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_codename').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_codepage',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_codepage').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_distro',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_distro').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_kernel',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_kernel').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_logfile',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_logfile').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_platform',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_platform').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_release',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_release').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_serial',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_serial').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_servicepack',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_servicepack').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('os_uefi',(event,data)=>{
+ 
+  document.getElementById('os_uefi').innerHTML=data;
+ 
+  
+})
+ipcRenderer.on('os_uuid',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('os_uuid').innerHTML=data;
+
+  }
+})
+
+///wifi/network starts here..
+ipcRenderer.on('net_gateway',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('net_gateway').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('net_stats',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('net_stats').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('net_interface',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('net_interface').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('wifi_stats',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('wifi_stats').innerHTML=data;
+
+  }
+})
+
+//Battery Information code
+ipcRenderer.on('bat_accon',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_accon').innerHTML=data;
+
+  }
+})
+ipcRenderer.on('bat_currentcap',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_currentcap').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_capacity',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_capacity').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_designedcap',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_designedcap').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_has',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_has').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_is',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_is').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_manufacturer',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_manufacturer').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_maxcap',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_maxcap').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_model',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_model').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_percent',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_percent').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_serial',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_serial').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_time',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_time').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_type',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_type').innerHTML=data;
+
+  }
+});
+ipcRenderer.on('bat_volt',(event,data)=>{
+  if (data!="")
+  {
+   document.getElementById('bat_volt').innerHTML=data;
+
+  }
+})
+
+
+
+
+
+</script>
+  
+  </body>
+</html>
